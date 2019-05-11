@@ -17,12 +17,15 @@ public class AntiPrimesSequence {
      */
     private List<Number> antiPrimes = new ArrayList<>();
     private List<Observer> observers = new ArrayList<>();
+    private NumberProcessor n1;
 
     /**
      * Create a new sequence containing only the first antiprime (the number '1').
      */
     public AntiPrimesSequence() {
         this.reset();
+        n1 = new NumberProcessor(this);
+        n1.start();
     }
 
     /**
@@ -37,13 +40,18 @@ public class AntiPrimesSequence {
      * Find a new antiprime and add it to the sequence.
      */
     public void computeNext() {
-        NumberProcessor n1 = new NumberProcessor();
-        n1.start();
-        antiPrimes.add(n1.nextAntiPrime(getLast()));
+        n1.nextAntiPrime();
+
+
+
+        //antiPrimes.add(AntiPrimes.nextAntiPrimeAfter(getLast()));
+    }
+
+    public void addAntiPrimes(Number n){
+        antiPrimes.add(n);
         for (Observer observer : observers)
             observer.update();
 
-        //antiPrimes.add(AntiPrimes.nextAntiPrimeAfter(getLast()));
     }
 
     /**
