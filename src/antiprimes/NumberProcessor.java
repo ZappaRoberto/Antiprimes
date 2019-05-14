@@ -11,6 +11,7 @@ public class NumberProcessor extends Thread {
     }
 
    public void run(){
+        nextAntiPrime();
 
     }
 

@@ -24,8 +24,7 @@ public class AntiPrimesSequence {
      */
     public AntiPrimesSequence() {
         this.reset();
-        n1 = new NumberProcessor(this);
-        n1.start();
+
     }
 
     /**
@@ -40,7 +39,9 @@ public class AntiPrimesSequence {
      * Find a new antiprime and add it to the sequence.
      */
     public void computeNext() {
-        n1.nextAntiPrime();
+        n1 = new NumberProcessor(this);
+        n1.start();
+        //n1.nextAntiPrime();
 
 
 
